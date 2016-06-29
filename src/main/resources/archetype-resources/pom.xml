@@ -6,9 +6,8 @@
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>jar</packaging>
-    <description>Spring Integration for DropWizard</description>
 
-    <name>Birthdio</name>
+    <name>${name}</name>
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
@@ -131,6 +130,26 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.9</version>
+                <configuration>
+                    <imageName>${awsDockerUrl}/${artifactId}</imageName>
+                    <dockerDirectory>docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <imageTags>
+                        <imageTag>${project.version}</imageTag>
+                    </imageTags>
+                    <useConfigFile>true</useConfigFile>
+                </configuration>
             </plugin>
         </plugins>
     </build>

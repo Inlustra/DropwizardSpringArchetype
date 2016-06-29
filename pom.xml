@@ -4,7 +4,7 @@
 
   <groupId>com.thenairn.archetypes</groupId>
   <artifactId>dropwizardspring</artifactId>
-  <version>0.1.2</version>
+  <version>0.1.3</version>
   <packaging>maven-archetype</packaging>
 
   <name>dropwizardspring</name>

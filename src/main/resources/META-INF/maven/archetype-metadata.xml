@@ -5,7 +5,18 @@
         xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <requiredProperties>
-        <requiredProperty key="name"/>
+        <requiredProperty key="name">
+            <defaultValue>DropwizardSpring</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="authorName">
+            <defaultValue>#AUTHOR_NAME_GOES_HERE#</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="authorEmail">
+            <defaultValue>#AUTHOR_EMAIL_GOES_HERE#</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="awsDockerUrl">
+            <defaultValue>#DOCKER_IMAGE_GOES_HERE#</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
@@ -20,22 +31,10 @@
                 <include>**/*.java</include>
             </includes>
         </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory>.idea/libraries</directory>
+        <fileSet filtered="true" packaged="false" encoding="UTF-8">
+            <directory>docker/</directory>
             <includes>
-                <include>**/*.xml</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory>.idea</directory>
-            <includes>
-                <include>**/*.xml</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
-            <directory>.idea/copyright</directory>
-            <includes>
-                <include>**/*.xml</include>
+                <include>**/*</include>
             </includes>
         </fileSet>
         <fileSet encoding="UTF-8">
